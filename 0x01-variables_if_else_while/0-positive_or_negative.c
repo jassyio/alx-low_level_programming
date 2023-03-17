@@ -10,6 +10,17 @@ int main(void)
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	printf("the random number produced is : %d \n", n);
+	if( n < 0)
+        {
+		printf("the %d is negative\n", n);
+	}
+      	else if(n == 0)
+        {
+		printf("the %d is zero\n", n);
+	}
+	else
+	{
+		printf("the %d is positive\n", n);
+	}	
 	return (0);
 }
