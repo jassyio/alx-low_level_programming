@@ -1,19 +1,24 @@
 #include <stdio.h>
-
 /**
- * main - Entry point
+ * main - entry point
  *
- * Return: Always 0 (Success)
+ * result - always 0 (succesful)
  */
 int main(void)
 {
-    int i;
+	char alphabet[26];
+	int i;
 
-    /* Print the lowercase alphabet in reverse */
-    for (i = 122; i >= 97; i--)
-    {
-        putchar(i);
-    }
-    putchar('\n');
-    return (0);
+	for (i = 0; i < 26; i++)
+	{
+		alphabet[i] = 'a' + i;
+	}
+
+	for (i = 0; i < 26; i++)
+	{
+		putchar(alphabet[i]);
+	}
+	putchar('\n');
+
+	return (0);
 }
