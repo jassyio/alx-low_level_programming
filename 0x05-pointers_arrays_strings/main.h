@@ -14,5 +14,7 @@ void print_array(int *a, int n);
 char *_strcpy(char *dest, char *src);
 int _atoi(char *s);
 101-crackme.
+#include <stdlib.h>
+#include <time.h>
 #endif /* MAIN_H */
 
