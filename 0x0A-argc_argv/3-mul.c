@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- *main - multiplies two integers
+ *main - multiplies two integers.
  *@argc: number of arguments in the array.
- *@argv: value of arguments
- *return - always 0 (success)
+ *@argv: value of arguments.
+ * Return: 0 (success).
  */
 int main(int argc, char *argv[])
 {
