@@ -1,48 +1,47 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "sort.h"
+#include <stdio.h>
 /**
- * shell_sort - function that sorts an array
- * of integers in ascending order using the
- * Shell sort algorithm
- *
- * @array: input arrray
- * @size: size of the array
- * Return: no return
+ * _swap - swaped 2 values.
+ * @array: the array for swap him values.
+ * @i: First index
+ * @j: Second index
+ * Return: Nothing
+ */
+void _swap(int *array, int i, int j)
+{
+	int tmp;
+
+	if (array[i] != array[j])
+	{
+		tmp = array[i];
+		array[i] = array[j];
+		array[j] = tmp;
+	}
+}
+
+/**
+ * shell_sort - sort the list and print the changes
+ * @array: The array to sort.
+ * @size: Size of the array
+ * Return: Nothing
  */
 void shell_sort(int *array, size_t size)
 {
-	size_t n = 1;
+	size_t h = 0,  i, j;
 
-	while (n < size)
-		n = (n * 3) + 1;
+	if (size < 2)
+		return;
 
-	while ((n = (n - 1) / 3) > 0)
-		_ssort(array, size, n);
-}
-/**
- * _ssort - auxiliar function for
- * shell_sort function
- * @a: input arrray
- * @size: size of the array
- * @n: intervale
- * Return: no return
- */
-void _ssort(int *a, int size, int n)
-{
-	int tmp, i, j;
+	while (h <= size / 3)
+		h = h * 3 + 1;
 
-	for (i = 0; (i + n) < size; i++)
+	while (h >= 1)
 	{
-		for (j = i + n; (j - n) >= 0; j = j - n)
-		{
-			if (a[j] < a[j - n])
-			{
-				tmp = a[j];
-				a[j] = a[j - n];
-				a[j - n] = tmp;
-			}
-		}
+		for (i = h; i < size; i++)
+			for (j = i; j >= h && array[j] < array[j - h]; j -= h)
+				_swap(array, j, j - h);
+		h /= 3;
+		print_array(array, size);
 	}
-	print_array(a, size);
 }
